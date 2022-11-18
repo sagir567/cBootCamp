@@ -1,17 +1,12 @@
 #include <stdio.h>
 #include <math.h>
 #include <stdbool.h>
+#include "NumClass.h"
 
-int countDigits(int n){
-    int count =0;
-    while (n!=0){
-        n=n/10;
-        count++;
-    }
-    return count;
-}
+
    int isArmstrong(int n){
-    int power =  countDigits(n);
+
+    int power =  (log10(n)+1);
     int temp = n;
     while (n!=0){
         temp-= pow((double)(n%10),(double)power);

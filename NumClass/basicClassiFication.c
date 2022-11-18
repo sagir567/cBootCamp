@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <math.h>
 #include <stdbool.h>
+#include "NumClass.h"
 
 int isStrong(int n){
     int factorial[] ={1,1,2,6,24,120,720,5040,40320,362880};
