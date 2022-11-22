@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <math.h>
 #include <stdbool.h>
-#include "NumClass.h"
+#include "NumClass.h" 
 
 
    int isArmstrong(int n){
@@ -29,9 +29,3 @@ int isPalindrome(int n){
 }
 
 
-void main(){
-    int n=0;
-    scanf("%d",&n);
-    printf("%d" ,isArmstrong(n));
-
-}

@@ -18,7 +18,7 @@ int isStrong(int n){
 
 int isPrime(int n){
     
-    for (int i=2;i<n;i++ ){
+    for (int i=2;i<=sqrt(n);i++ ){
         if((n%i)==0){
             return 0;
         }
@@ -26,29 +26,3 @@ int isPrime(int n){
 }
 
 
-void main(){
-
-// int n =0;
-// scanf("%d",&n);
-
-// printf("%d",isStrong(n));
-
-
-
-
-//     start:
-//     printf("insert valid number and i will chack if it's a prime number or not\ninsert -1 to exit\n");
-//     int n=0;
-//     scanf("%d",&n);
-//    if(n==-1){
-//     goto end;
-//    }
-   
-//     if(isPrime(n)==1)
-//         printf("%d is prime!\n\n\n",n);
-    
-//     else printf("%d is not prime!\n\n\n",n);
-
-//     goto start;
-//     end:
-}
