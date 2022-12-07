@@ -6,7 +6,7 @@ int main(){
     int num1,num2;
     printf("insert two number to represent the range ");
     scanf("%d %d",&num1,&num2);
-
+    
     int status =4;
     while (status > 0){
         switch (status)

@@ -52,4 +52,4 @@ main.o: main.c NumClass.h
 
 .PHONEY: clean
 clean:
-	rm -f *.o *.a *.so mains maindloop maindrec
+	rm -f *.o *.a *.so *.gch mains maindloop maindrec
