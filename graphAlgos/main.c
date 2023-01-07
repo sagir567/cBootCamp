@@ -18,6 +18,7 @@ char status;
     }
     
     if (status == 'B'){
+        initVisited();
         int i,j;
         scanf("%d %d",&i,&j);
         printf("%d",(isReachable(i,j)));
@@ -25,6 +26,7 @@ char status;
     }
 
     if (status == 'C'){
+        initVisited();
         int i,j;
         scanf("%d %d",&i,&j);
         if(isReachable(i,j)){

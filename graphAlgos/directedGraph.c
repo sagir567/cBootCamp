@@ -96,6 +96,7 @@ void printGraph(int graph[10][10])
 
 void initGraph()
 {
+    initVisited;
     printf("you have requested to init an 10 * 10 size graph\n if you want to create an edge between vertex i to vertex j enter the edge distance, else ente 0\n");
 
     for (int i = 0; i < 10; i++)
