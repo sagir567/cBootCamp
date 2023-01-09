@@ -69,7 +69,13 @@ int getLine(char s[])
     char temp;
     for (int i = 0; i < LINE; i++)
     {
-        scanf("%c", &temp);
+        int b = scanf("%c", &temp);
+         if (b == -1)
+        {
+
+            *(s + i) = EOF;
+            return i;
+        }
         if (temp == EOF || (temp == '\n'))
         {
             *(s + i) = temp;
@@ -152,14 +158,15 @@ void print_similar_words(char *str)
 
 int main()
 {
-    char *line;
-    line = (char *)calloc(LINE, sizeof(char));
-    strcpy(line, "cats");
     char *word;
-    word = (char *)calloc(LINE, sizeof(char));
-    strcpy(word, "cat");
-
-    print_similar_words(word);
+    word = (char *)calloc(WORD, sizeof(char));
+    getword(word);
+    char *choice;
+    
+    choice = (char *)calloc(1, sizeof(char));
+    getword(choice);
+    
+    (*choice == 'a')?print_lines(word):print_similar_words(word);
 
     return 0;
 }
