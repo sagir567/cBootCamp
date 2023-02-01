@@ -1,4 +1,4 @@
-
+// Description: Parse int from string
 int ParasInt(char* str){
  int sigen = 1;
 if(*str == '-'){
