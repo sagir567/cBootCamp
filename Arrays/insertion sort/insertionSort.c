@@ -58,7 +58,7 @@ int main()
 {
     int arr[size];
     initArr(arr, size);
-    printArr(arr,size);'
+    printArr(arr,size);
     printf("\n\n\n ")'
     insertion_sort(arr,size);
     printArr(arr,size);
