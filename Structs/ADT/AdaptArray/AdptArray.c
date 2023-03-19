@@ -9,7 +9,6 @@
 #include <string.h>
 
 
-
 #define min(a, b) ((a) < (b) ? (a) : (b))
 typedef struct AdptArray_ {
     DEL_FUNC delFunc;
@@ -47,25 +46,25 @@ int GetAdptArraySize(PAdptArray pArr) {
 
 
 Result SetAdptArrayAt(PAdptArray pArr, int index, PElement pNewElement) {
+    if (index < 0) {
+        printf("ERROR: EXCEPTED: index>=0 , ACTUAL: %d", index);
+        return FAIL;
+    }
     if (pArr == NULL) {
         printf("ERROR: EXPECTED: AdaptArray type pointer, ACTUAL: NULL");
         return FAIL;
     }
-
+    PElement *newArr = NULL;
     if (index >= pArr->size) {
-        PElement *newArr = (PElement *) calloc(index + 1, sizeof(PElement));
+        newArr = (PElement *) calloc(index + 1, sizeof(PElement));
         if (newArr == NULL) {
             return FAIL;
         }
 
 
-//        if(pArr->size<index){
-//               memcpy(newArr, pArr->arr, (pArr->size) * sizeof(PElement));
-//        }
-//        else{
-//            memcpy(newArr, pArr->arr, (index) * sizeof(PElement));
-//        }
-        memcpy(newArr, pArr->arr, min(pArr->size, index) * sizeof(PElement));
+        //memcpy(newArr, pArr->arr, min(pArr->size, index) * sizeof(PElement));
+        memcpy(newArr, pArr->arr, pArr->size * sizeof(PElement));
+
         free(pArr->arr);
         pArr->arr = newArr;
         pArr->size = index + 1;
@@ -86,20 +85,26 @@ void DeleteAdptArray(PAdptArray pArr) {
     // handle NULL pointer
     if (pArr == NULL) {
 
-        printf("ERROR: EXCEPTED:Arraylist type pointer , actual: NULL");
+        printf("ERROR: EXCEPTED:Arraylist type pointer\nACTUAL: NULL");
         return;
     }
 
     for (int i = 0; i < pArr->size; i++) {
+        if(GetAdptArrayAt(pArr,i)==NULL)
+            continue;
         pArr->delFunc(pArr->arr[i]); // delete each element using the DEL_FUNC pointer
     }
 
     free(pArr->arr); // free the array memory
-    free(pArr); // free the AdptArray struct memory
+    free(pArr); // free the AdaptArray struct memory
 }
 
 
 void PrintDB(PAdptArray pArr) {
+    if (pArr == NULL) {
+        printf("ERROR: EXCEPTED:Arraylist type pointer , actual: NULL");
+        return;
+    }
     if (pArr->size == 0) {
         printf("ERROR: ArrayList is empty!!");
         return;
@@ -130,14 +135,6 @@ PElement GetAdptArrayAt(PAdptArray pArr, int index) {
     pArr->copyFunc(element);
     return pArr->arr[index];
 }
-
-int main() {
-
-    printf("sssssss");
-
-    return 0;
-}
-
 
 
 

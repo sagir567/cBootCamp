@@ -11,7 +11,7 @@ SOURCES=AdptArray.c book.c Person.c
 run: demo
 	./$^
 
-mem_test: Demo
+mem_test: demo
 	valgrind ./$^
 
 demo: Demo.o $(OBJECTS)
